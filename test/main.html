@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Testprogramm</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+            <input id="field1" type="number" placeholder="first number">
+            x
+            <input id="field2" type="number" placeholder="sec. number">
+            <input id="result" type="submit" value="Multiply" onclick="calculate();">
+        <script>
+            function calculate() {
+                var myBox1 = document.getElementById('field1').value; 
+                var myBox2 = document.getElementById('field2').value;
+                var myResult = myBox1 * myBox2;
+                field1.value = myResult;
+                field2.value = "";
+            }
+        </script>
+    </body>
+</html>
