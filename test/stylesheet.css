@@ -1,0 +1,54 @@
+/*Code for transition*/
+    .timing {
+        width: 100px;
+        height: 30px;
+        background: lightblue;
+        transition: width 2s;
+    }
+
+    .timing:hover {
+        width: 300px;
+    }
+
+    #div1 {transition-timing-function: linear;}
+    #div2 {transition-timing-function: ease;}
+    #div3 {transition-timing-function: ease-in;}
+    #div4 {transition-timing-function: ease-out;}
+    #div5 {transition-timing-function: ease-in-out;}
+
+/*code for animation*/
+@keyframes bounce {
+    0% {
+        left: 0;
+        top: 0;
+    }
+    50% {
+        left: 250px;
+        top: 100px;
+    }
+    100% {
+        left: 500px;
+        top: 0;
+    }
+}
+.animationDiv {
+    background: white;
+    border-color: black;
+    border: solid;
+    height: 150px;
+    position: relative;
+    width: 540px;
+}
+.animationDiv:hover .ball {
+    animation: bounce 2s ease-in-out .5s infinite alternate;
+}
+.animationDiv:active .ball {
+    animation-play-state: paused;
+}
+.ball {
+    background: darkblue;
+    border-radius: 50%;
+    height: 40px;
+    position: absolute;
+    width: 40px;
+}
