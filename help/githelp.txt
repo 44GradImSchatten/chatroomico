@@ -1,18 +1,19 @@
-cd .. zurück
+cd .. zurÃ¼ck
 cd <ordner> : na vigieren
 ls aktuelles verzeichn is
-explorer . : öffnet explorer
+explorer . : Ã¶ffnet explorer
 
 git init : neu
-git clone <adresse> : von dive
-git push
-git status : änderungen zeigt er
-git add / -a : fügt hinzu
-git commit : speichertxx
+git clone <adresse> : von github
+git push: lÃ¤dt die lokalen Ã¤nderungen hoch
+git status : zeigt aktuellen status deines branches
+git add <filename> +++oder+++ --all : fÃ¼gt eine datei oder alle Ã„nderungen an Datein zu deinem branch hinzu
+git commit -m "<message>": speichertxx
 git push origin master
 git checkout -b 'marco': neuer  branch - wechselt zu ihm
 git checkout 'marco' : wechselt
-git pull : vom server die änderungen zusammentun
+git pull : vom server die Ã¤nderungen zusammentun
+git merge <branchname>: fÃ¼gt aktuellen Status zusammen
 
 c at: datein ausgeben
 vim ... : date bearbeiten
@@ -24,7 +25,7 @@ git config --global http.proxy web-proxy:8088
 git config --global https.proxy web-proxy:8088
 
 git reset --hard head
-//verwirft alle änderungen seit dem commit
+//verwirft alle Ã¤nderungen seit dem commit
 
 ipconfig /renew
 ipconfig -renew
