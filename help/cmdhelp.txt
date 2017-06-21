@@ -1,0 +1,31 @@
+cd : direct to a folder
+cd .. : back
+cd ../.. : multible times
+
+dir : directory
+dir ...\...\... : directory on specific fplder
+dir  /a : also hidden
+dir *... : list only files/folders wich ends in  ..
+
+mkdir  : make directory
+rmdir : remove directory only if its  emty
+rmdir /s : remove dir w/ content
+
+tree : lists all inside
+
+cls : clear screen
+
+del <file>: delete
+command /? : lists all optional features
+
+path  : shows path variables
+
+color <0B> : changes color
+color /? : lists all colors
+wmic logicaldisk get name : names of all devices
+<LETTER>: switch to anouther drive
+
+
+
+
+
