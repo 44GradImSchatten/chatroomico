@@ -1,0 +1,3 @@
+cd .../chatroom
+ng serve --open    :::: öffnet den server
+im Browser localhost 4200
