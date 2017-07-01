@@ -83,16 +83,6 @@ function register_popup(id, name)
 
     popups.unshift(id);
             
-<<<<<<< HEAD
-            //recalculate when window is loaded and also when window is resized.
-            window.addEventListener("resize", calculate_popups);
-            window.addEventListener("load", calculate_popups);
-            
-// getting name of clicked user
-    span.onclick = function(e) {
-    e.srcElement.innerText = e.srcElement.spanName;
-}
-=======
     calculate_popups();
     
 }
