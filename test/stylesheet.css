@@ -19,12 +19,54 @@ body{
     width: 20%;
     position: fixed;
     height: 100%;
-    left: 0px;
-    top: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding: 10px; 
     border: 1px solid #126497;
+    background-color: rgba(18, 100, 151, 0.3);  
+    display: block;
+    overflow: hiddden;
+}
+
+.chat-header{
+    width: 80%;
+    position: fixed;
+    left: calc(20% + 20px);
+    top: calc(0% + 0px);
+    height: 10%;
+    padding: 10px;
+    overflow:hidden;
+    border: 1px solid black;
+    background-color: grey;
+    display: block;
+    overflow: hiddden;
+}
+
+.chat-content{
+    width: 80%;
+    position: fixed;
+    left: calc(20% + 20px);
+    top: calc(10% + 20px);
+    height: 60%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left:2%;
+    overflow-y: scroll;
+    border: 1px solid black;
     background-color: rgba(18, 100, 151, 0.3);
+}
+
+.chat-footer{
+    width: 80%;
+    position: fixed;
+    left: calc(20% + 20px);
+    top:  calc(70% + 60px);
+    height: 30%;
+    padding-left: 2%;
+    overflow:auto;
+    border: 1px solid black;
+    background-color: whitesmoke;
 }
 
 .sidebar-user {
