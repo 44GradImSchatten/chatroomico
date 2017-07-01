@@ -12,20 +12,77 @@
 }
             
 body{
-    background-color: #b8b8b8;
+    margin: 0;
+    padding: 0;
 }
 
 .chat-sidebar{
     width: 20%;
     position: fixed;
     height: 100%;
-    left: 0px;
-    top: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding: 10px; 
     border: 1px solid #126497;
-    background-color: rgba(18, 100, 151, 0.3);
+    background-color: rgba(18, 100, 151, 0.6);  
+    display: block;
+    overflow: hidden;
 }
+
+.chat-header{
+    width: 80%;
+    position: fixed;
+    left: calc(20% + 20px);
+    top: calc(0% + 0px);
+    height: 10%;
+    padding: 10px;
+    overflow:hidden;
+    border: 1px solid black;
+    background-color: grey;
+    display: block;
+    overflow: hidden;
+}
+
+.chat-content{
+    width: 80%;
+    position: fixed;
+    left: calc(20% + 20px);
+    top: calc(10% + 20px);
+    height: 70%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left:2%;
+    overflow-y: scroll;
+    border: 1px solid black;
+    background-color: pink;
+}
+
+.chat-footer{
+    width: 80%;
+    position: fixed;
+    left: calc(20% + 20px);
+    top: calc(80% + 20px);
+    height: 30%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left:2%;
+    overflow-y: scroll;
+    border: 1px solid black;
+    background-color: yellow;
+}
+
+.send-message{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
 
 .sidebar-user {
     padding-left: 15px;
@@ -49,86 +106,24 @@ body{
 .sidebar-user:hover{
     background-color:#126497;
 }
+.sidebar-user:focus{
+    background-color:#120699;
+}
 
 .sidebar-user img{
     width: 40px;
     height: 40px;
-    vertical-align:middle;
+    vertical-align: middle;
 }
 
-.online-status {
-    overflow: hidden;
-    border-style:solid;
-    border-width: 2px;
-    border-color: #666;
-    padding-top: 6px;
-    padding-right: 6px;
-    width: 16px;
-    height: 16px;
+input[type=text], select {
+    text-align: left;
+    width: 95%;
+    padding: 12px 20px;
+    margin: 8px 0;
     display: inline-block;
-
-    border-radius: 20%;
-    margin: 0.2em 0 0.2em 0.5em;
-    vertical-align:middle;
-    line-height: 16px;
-    background: #cccccc;
-    -webkit-box-shadow: inset 0 -6px 6px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    -moz-box-shadow: inset 0 -6px 6px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    box-shadow: inset -6px -6px 6px rgba(0, 0, 0, 0.3), inset 3px 3px 6px rgba(255, 255, 255, 0.3);
-}
-
-
-.dot-red {
-background: #990000;
-}
-.dot-green {
-background: #009900;
-}
-.dot-yellow {
-background: #999900;
-}
-
-.popup-box
-{
-    display: none;
-    position: fixed;
-    bottom: 0px;
-    right: 220px;
-    height: 285px;
-    background-color: rgb(237, 239, 244);
-    width: 300px;
-    border: 1px solid rgba(29, 49, 91, .3);
-}
-
-.popup-box .popup-head
-{
-    background-color: #6d84b4;
-    padding: 5px;
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-    clear: both;
-}
-
-.popup-box .popup-head .popup-head-left
-{
-    float: left;
-}
-
-.popup-box .popup-head .popup-head-right
-{
-    float: right;
-    opacity: 0.5;
-}
-
-.popup-box .popup-head .popup-head-right a
-{
-    text-decoration: none;
-    color: inherit;
-}
-
-.popup-box .popup-messages
-{
-    height: 100%;
-    overflow-y: scroll;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: solid 1px #707070;
+    box-shadow: 0 0 5px 1px #969696;
 }
