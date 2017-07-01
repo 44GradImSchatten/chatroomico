@@ -1,4 +1,5 @@
-//this function can remove a array element.
+export function test(){
+  //this function can remove a array element.
 Array.remove = function(array, from, to) {
     var rest = array.slice((to || from) + 1 || array.length);
     array.length = from < 0 ? array.length + from : from;
@@ -83,16 +84,6 @@ function register_popup(id, name)
 
     popups.unshift(id);
             
-<<<<<<< HEAD
-            //recalculate when window is loaded and also when window is resized.
-            window.addEventListener("resize", calculate_popups);
-            window.addEventListener("load", calculate_popups);
-            
-// getting name of clicked user
-    span.onclick = function(e) {
-    e.srcElement.innerText = e.srcElement.spanName;
-}
-=======
     calculate_popups();
     
 }
@@ -119,5 +110,4 @@ function calculate_popups()
 //recalculate when window is loaded and also when window is resized.
 window.addEventListener("resize", calculate_popups);
 window.addEventListener("load", calculate_popups);
-            
->>>>>>> 1bc1a8fcdd6c378d625a4570d9fb703014464f72
+}
