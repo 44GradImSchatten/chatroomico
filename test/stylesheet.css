@@ -91,3 +91,15 @@ body{
     height: 40px;
     vertical-align: middle;
 }
+
+input[type=text], select {
+    text-align: left;
+    width: 95%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: solid 1px #707070;
+    box-shadow: 0 0 5px 1px #969696;
+}
