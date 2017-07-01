@@ -1,3 +1,20 @@
+function inputKeyUp(e) {
+    e.which = e.which || e.keyCode;
+    if(e.which == 13) {
+        send();
+    }
+}
+
+function send(){
+    var text = document.getElementById("input").value;
+    document.getElementById("input").value = null;
+    addMessage(text);
+    console.log(text);
+}
+document.addEventListener('DOMContentLoaded', init);
+
+
+
 //this function can remove a array element.
 Array.remove = function(array, from, to) {
     var rest = array.slice((to || from) + 1 || array.length);
