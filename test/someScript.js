@@ -12,7 +12,6 @@ function send(){
     addMessage(text);
     console.log(text);
 }
-document.addEventListener('DOMContentLoaded', init);
 
 function addMessage(txt){
     var element = document.createElement('h2');
