@@ -1,32 +1,3 @@
-//falls enter, dann nachricht senden
-function inputKeyUp(e) {
-    e.which = e.which || e.keyCode;
-    if(e.which == 13) {
-        send();
-    }
-}
-
-function send(){
-    var text = document.getElementById("input").value;
-    document.getElementById("input").value = null;
-    addMessage(text);
-    console.log(text);
-}
-
-function addMessage(txt){
-    var element = document.createElement('h2');
-	var myMessage = document.createTextNode(txt);
-	element.appendChild(myMessage);
-	var Ausgabebereich = document.getElementById('main');
-	Ausgabebereich.appendChild(element);
-
-    var element = document.getElementById('button');
-	element.addEventListener('click', addAChild);
-}
-document.addEventListener('DOMContentLoaded', init);
-
-
-
 //this function can remove a array element.
 Array.remove = function(array, from, to) {
     var rest = array.slice((to || from) + 1 || array.length);
@@ -138,7 +109,5 @@ function calculate_popups()
 //recalculate when window is loaded and also when window is resized.
 window.addEventListener("resize", calculate_popups);
 window.addEventListener("load", calculate_popups);
-<<<<<<< HEAD
             
-=======
->>>>>>> 452d88ef5edc8e4a293deb08de9fed4fc57150d9
+>>>>>>> 1bc1a8fcdd6c378d625a4570d9fb703014464f72
