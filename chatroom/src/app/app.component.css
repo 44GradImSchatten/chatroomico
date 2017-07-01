@@ -59,24 +59,19 @@ body{
 .online-status {
     overflow: hidden;
     border-style:solid;
-    border-width: 2px;
+    border-width: 0.5px;
     border-color: #666;
-    padding-top: 6px;
-    padding-right: 6px;
-    width: 16px;
-    height: 16px;
+    padding-top: 4px;
+    padding-right: 4px;
+    width:2px;
+    height: 8px;
     display: inline-block;
-
-    border-radius: 20%;
+    border-radius: 50%;
     margin: 0.2em 0 0.2em 0.5em;
-    vertical-align:middle;
-    line-height: 16px;
+    vertical-align: middle;
+    line-height: 8px;
     background: #cccccc;
-    -webkit-box-shadow: inset 0 -6px 6px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    -moz-box-shadow: inset 0 -6px 6px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    box-shadow: inset -6px -6px 6px rgba(0, 0, 0, 0.3), inset 3px 3px 6px rgba(255, 255, 255, 0.3);
-}
-
+   }
 
 .dot-red {
 background: #990000;

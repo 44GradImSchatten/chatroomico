@@ -1,4 +1,5 @@
-//this function can remove a array element.
+export function test(){
+  //this function can remove a array element.
 Array.remove = function(array, from, to) {
     var rest = array.slice((to || from) + 1 || array.length);
     array.length = from < 0 ? array.length + from : from;
@@ -109,4 +110,4 @@ function calculate_popups()
 //recalculate when window is loaded and also when window is resized.
 window.addEventListener("resize", calculate_popups);
 window.addEventListener("load", calculate_popups);
-            
+}
