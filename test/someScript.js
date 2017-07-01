@@ -110,3 +110,7 @@
             window.addEventListener("resize", calculate_popups);
             window.addEventListener("load", calculate_popups);
             
+// getting name of clicked user
+    span.onclick = function(e) {
+    e.srcElement.innerText = e.srcElement.spanName;
+}

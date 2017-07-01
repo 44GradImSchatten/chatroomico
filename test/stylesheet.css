@@ -44,12 +44,20 @@ body{
     overflow: hidden;
 }
 
+.partner{
+    text-align: left;
+    width: 5%;
+    position: fixed;
+    font-size: 50;  
+    
+}
+
 .chat-content{
     width: 80%;
     position: fixed;
     left: calc(20% + 20px);
     top: calc(10% + 20px);
-    height: 70%;
+    height: 75%;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left:2%;
@@ -62,9 +70,9 @@ body{
     width: 80%;
     position: fixed;
     left: calc(20% + 20px);
-    top: calc(80% + 20px);
+    top: calc(85% + 20px);
     height: 30%;
-    padding-top: 20px;
+    padding-top: 0px;
     padding-bottom: 20px;
     padding-left:2%;
     overflow-y: scroll;
