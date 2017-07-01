@@ -13,13 +13,17 @@ function send(){
 
 }
 function addMessage(txt){
-    var element = document.createElement('h2');
+    var element = document.createElement('div');
 	var myMessage = document.createTextNode(txt);
 	element.appendChild(myMessage);
 	var Ausgabebereich = document.getElementById('main');
 	Ausgabebereich.appendChild(element);
 }
-document.addEventListener('DOMContentLoaded', addMessage);
+
+window.setInterval(function() {
+  var elem = document.getElementById('main');
+  elem.scrollTop = elem.scrollHeight;
+}, 200);
 
 
 
@@ -135,4 +139,4 @@ function calculate_popups()
 window.addEventListener("resize", calculate_popups);
 window.addEventListener("load", calculate_popups);
             
->>>>>>> 1bc1a8fcdd6c378d625a4570d9fb703014464f72
+
