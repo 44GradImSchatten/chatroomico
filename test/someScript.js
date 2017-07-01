@@ -10,8 +10,16 @@ function send(){
     document.getElementById("input").value = null;
     addMessage(text);
     console.log(text);
+
 }
-document.addEventListener('DOMContentLoaded', init);
+function addMessage(txt){
+    var element = document.createElement('h2');
+	var myMessage = document.createTextNode(txt);
+	element.appendChild(myMessage);
+	var Ausgabebereich = document.getElementById('main');
+	Ausgabebereich.appendChild(element);
+}
+document.addEventListener('DOMContentLoaded', addMessage);
 
 
 
