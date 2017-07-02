@@ -9,20 +9,62 @@ function inputKeyUp(e) {
 
 function check(){
     var text = document.getElementById("input").value;
-    
-        document.getElementById("input").value = null;
-        //send();
-        addMessage(text);
-    
+        if(text!=""){
+            document.getElementById("input").value = null;
+            //send();
+            //addToArray
+            addMsgOut(text);
+        }
     console.log(text);
 }
 
-function addMessage(txt){
-    var element = document.createElement('h2');
+function addMsgOut(txt){
+    var today = new Date();
+    var d = today.getDate();
+    var m = today.getMonth() + 1;
+    var y = today.getFullYear();
+    var h = today.getHours();
+    var min = today.getMinutes();
+    var dmy = d + "." + m + "." + y;
+    var hm = h + ":"+min;
+    var date = dmy+" - "+hm;
+
+    var Message = txt.concat("test");
+    var element = document.createElement('out');
+    var time = document.createElement('outTime');
+    var breakIt = document.createElement('br');
 	var myMessage = document.createTextNode(txt);
+    var myTime = document.createTextNode(date);
 	element.appendChild(myMessage);
+    time.appendChild(myTime);
 	var Ausgabebereich = document.getElementById('main');
+    Ausgabebereich.appendChild(time);
 	Ausgabebereich.appendChild(element);
+    Ausgabebereich.appendChild(breakIt); 
+}
+function addMsgIn(txt){
+    var today = new Date();
+    var d = today.getDate();
+    var m = today.getMonth() + 1;
+    var y = today.getFullYear();
+    var h = today.getHours();
+    var min = today.getMinutes();
+    var dmy = d + "." + m + "." + y;
+    var hm = h + ":"+min;
+    var date = dmy+" - "+hm;
+
+    var Message = txt.concat("test");
+    var element = document.createElement('in');
+    var time = document.createElement('inTime');
+    var breakIt = document.createElement('br');
+	var myMessage = document.createTextNode(txt);
+    var myTime = document.createTextNode(date);
+	element.appendChild(myMessage);
+    time.appendChild(myTime);
+	var Ausgabebereich = document.getElementById('main');
+    Ausgabebereich.appendChild(time);
+	Ausgabebereich.appendChild(element);
+    Ausgabebereich.appendChild(breakIt); 
 }
 
 
