@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app="chatApp">
+    <head>
+        <title>Headquater</title>
+        <meta charset="UTF-8">
+        <script src="angular.min.js"></script>
+        <script src="someScript.js"></script>
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <div ng-controller="ChatListController as userList">
+            <div class="chat-sidebar">
+                <div class="sidebar-user" ng-repeat="user in userList.users">
+                    <div ng-click="select(user.id)">
+                        <img width="30" height="30" src="https://image.freepik.com/free-icon/happy-emoticon_318-40206.jpg" />
+                        <span>{{user.name}}</span>
+                        <span class="isOnline" ng-if="user.online">online</span>
+                        <span class="isOffline" ng-if="!user.online">offline</span>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="chat-header">
+                <span class="actualUser">
+                    {{selectedUser.name}}
+                </span>     
+            </div>
+        </div>
+        
+
+        <div id="main" class="chat-content">
+        </div>
+
+            <div class="chat-footer">
+                <input type="text" id="input"  onkeyup="inputKeyUp(event)" autofocus/>
+            </div>
+        
+    </body>
+</html>
+

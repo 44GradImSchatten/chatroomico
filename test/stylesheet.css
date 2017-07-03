@@ -65,6 +65,30 @@ body{
     color: black;
 }
 
+.actualUser{
+     font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+.isOnline{
+    font-size: 0.8em;
+    margin-top: 0.8em;
+    float: right;
+    color: green;
+}
+.isOffline{
+    font-size: 0.8em;
+    margin-top: 0.8em;
+    float: right;
+    color: red;
+}
+
 .after::after {
 	content: "\A";
 	white-space: pre;
@@ -79,7 +103,7 @@ body{
     bottom: 0;
     padding: 10px; 
     border: 1px solid #126497;
-    background-color: rgba(18, 100, 151, 0.6);  
+    background-color: rgba(18, 100, 151, 0.3);  
     display: block;
     overflow: hidden;
 }
