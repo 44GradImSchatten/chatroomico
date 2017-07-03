@@ -1,49 +1,85 @@
+
+setInterval(function() {
+     Socket.send(JSON.stringify({
+        "action": "getChatRooms",
+       }));
+    // window.scrollTo(0,document.body.scrollHeight);
+}, 10000);
+var room = [
+        {id:0, name:'Room1', messages:[{
+            time:'Uhrzeit',text:'asmdasd'},{time:'UHrzeit',text:'akjnjad'}]},
+        {id:1, name:'Lobby 2', online:false},
+        {id:2, name:'Lobby8', online:true},
+        {id:3, name:'ajknjkanjkdadjkn', online:false}];
+
 angular.module('chatApp', [])
     .controller('ChatListController', function($scope) {
-    var userList = this;
-    $scope.selectedUser;
+    var roomList = this;
+    $scope.selectedRoom;
 
-    userList.users = [
-        {id:0, name:'Marco Schlipf', online:true},
-        {id:1, name:'Olaf Olson', online:false},
-        {id:2, name:'Olaf Olson', online:false},
-        {id:3, name:'Victor Veal', online:false}];
+    roomList.rooms = room;
 
-    userList.addUser = function() {
-        userList.users.push({name:userList.userName, online:false});
-        userList.userName = '';
+    roomList.addRoom = function() {
+        roomList.rooms.push({name:roomList.roomName, online:false});
+        roomList.roomName = '';
     };
 
-    userList.remaining = function() {
+    roomList.remaining = function() {
         var count = 0;
-        angular.forEach(userList.users, function(user) {
-        count += user.online ? 0 : 1;
+        angular.forEach(roomList.rooms, function(room) {
+        count += room.online ? 0 : 1;
         });
         return count;
     };
 
-    userList.archive = function() {
-        var oldUsers = userList.users;
-        userList.users = [];
-        angular.forEach(oldUsers, function(user) {
-        if (!user.online) userList.users.push(user);
+    roomList.archive = function() {
+        var oldRooms = roomList.rooms;
+        roomList.rooms = [];
+        angular.forEach(oldRooms, function(room) {
+        if (!room.online) roomList.rooms.push(room);
         });
     };
 
-    $scope.select = function(pUser) {
-        angular.forEach(userList.users, function(user){
-            if(user.id==pUser){
-                $scope.selectedUser = user;
+    $scope.select = function(pRoom) {
+        angular.forEach(roomList.rooms, function(room){
+            if(room.id==pRoom){
+                $scope.selectedRoom = room;
             }
         });
-        console.log($scope.selectedUser);
+        console.log($scope.selectedRoom);
      
     };
 
     
 });
 
+var user = "popo";
+//WebScoket zeug
+var Socket = new WebSocket('ws://liebknecht.danielrutz.com:3000/chat');
 
+Socket.onopen = function () {
+//   Socket.send('Ping'); // Send the message 'Ping' to the server
+};
+
+// Log errors
+Socket.onerror = function (error) {
+  console.log('WebSocket Error ' + error);
+};
+
+// Log messages from the server
+Socket.onmessage = function (event) {
+    var data = JSON.parse(event.data);
+    console.log('Server: ' + data);
+    usr = data['user'];
+    msg = data['message'];
+    time = data['timestamp'];
+    roomId = data['roomId'];
+    if(user==usr){
+        addMsgOut(msg);
+    }else{
+        addMsgIn(msg);
+    }
+};
   
 function inputKeyUp(e) {
     e.which = e.which || e.keyCode;
@@ -57,15 +93,28 @@ function inputKeyUp(e) {
 function check(){
     var text = document.getElementById("input").value;
         if(text!=""){
+            send();
             document.getElementById("input").value = null;
-            //send();
             //addToArray
-            addMsgOut(text);
+            //addMsgOut(text);
         }
     console.log(text);
 }
 
-function addMsgOut(txt){
+function send(){
+    Socket.send(JSON.stringify({
+        "action": "postMessage",
+        "roomId": "Lobby",
+        "user": this.user,
+        "message": document.getElementById("input").value
+            .replace(":/", '<img alt="confused face" class="emoji" src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/confused-face_1f615.png">')
+            .replace(":)", '<img alt="smiling face" class="emoji" src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/slightly-smiling-face_1f642.png">')
+            .replace(":(", '<img alt="frowning face" class="emoji" src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/slightly-frowning-face_1f641.png">')
+            .replace(":D", '<img alt="smiling face with open mouth" class="emoji" src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/smiling-face-with-open-mouth_1f603.png">')
+    }));
+}
+
+function addMsgOut(txt,ts){
     var today = new Date();
     var d = today.getDate();
     var m = today.getMonth() + 1;
@@ -76,7 +125,6 @@ function addMsgOut(txt){
     var hm = h + ":"+min;
     var date = dmy+" - "+hm;
 
-    var Message = txt.concat("test");
     var element = document.createElement('out');
     var time = document.createElement('outTime');
     var breakIt = document.createElement('br');
