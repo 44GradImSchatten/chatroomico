@@ -50,8 +50,6 @@ angular.module('chatApp', [])
 });
 
 
-
-
 //Authentication
 authentication();
 function authentication(){
@@ -66,11 +64,17 @@ function authentication(){
     var password = prompt("Please enter your password");
 
     if (usernames.indexOf(username) != -1) {
+        console.log("klappt");
         if (passwords[usernames.indexOf(username)] == password) {
             loggedUser = username;
-        }
+        }else {
+        alert("wrong username or pass");
+        window.stop();
+    }
     } else {
         alert("wrong username or pass");
+        window.stop();
+        
     }
 }
 
@@ -184,7 +188,6 @@ function addMsgIn(txt, pUsr){
     var hm = h + ":"+min;
     var date = pUsr+" - "+hm;
 
-    var Message = txt.concat("test");
     var element = document.createElement('in');
     var time = document.createElement('inTime');
     var breakIt = document.createElement('br');
