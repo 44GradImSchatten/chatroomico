@@ -1,3 +1,4 @@
+var loggedUser = "";
 
 setInterval(function() {
      Socket.send(JSON.stringify({
@@ -48,7 +49,31 @@ angular.module('chatApp', [])
     
 });
 
-var user = "popo";
+
+
+
+//Authentication
+authentication();
+function authentication(){
+    var usernames = new Array();
+    usernames[0] = "marco";
+    usernames[1] = "vic";
+    var passwords = new Array();
+    passwords[0] = "admin";
+    passwords[1] = "admin";
+    
+    var username = prompt("Please enter your username");
+    var password = prompt("Please enter your password");
+
+    if (usernames.indexOf(username) != -1) {
+        if (passwords[usernames.indexOf(username)] == password) {
+            loggedUser = username;
+        }
+    } else {
+        alert("wrong username or pass");
+    }
+}
+
 //WebScoket zeug
 var Socket = new WebSocket('ws://liebknecht.danielrutz.com:3000/chat');
 
@@ -68,7 +93,6 @@ Socket.onmessage = function (event) {
     if(event.data[0]==="[") {
         room = "[";
         for(var z=0; z<data.length;z++){
-            console.log('HELLO MOTO');
             room += "{name: '"+data[z]+"'}";
             if(z<data.length-1){
                 room+=",";
@@ -80,13 +104,15 @@ Socket.onmessage = function (event) {
         msg = data['message'];
         time = data['timestamp'];
         roomId = data['roomId'];
-        if(user==usr){
+        console.log(usr);
+        if(loggedUser==usr){
             addMsgOut(msg);
         }else{
             addMsgIn(msg);
         }
+        var elem = document.getElementById('main');
+    elem.scrollTop = elem.scrollHeight;
     }
-    test();
 };
 
 function test(){console.log(room);}
@@ -115,7 +141,7 @@ function send(){
     Socket.send(JSON.stringify({
         "action": "postMessage",
         "roomId": "Lobby",
-        "user": this.user,
+        "user": loggedUser,
         "message": document.getElementById("input").value
             .replace(":/", '<img alt="confused face" class="emoji" src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/confused-face_1f615.png">')
             .replace(":)", '<img alt="smiling face" class="emoji" src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/96/slightly-smiling-face_1f642.png">')
@@ -169,7 +195,7 @@ function addMsgIn(txt){
 	var Ausgabebereich = document.getElementById('main');
     Ausgabebereich.appendChild(time);
 	Ausgabebereich.appendChild(element);
-    Ausgabebereich.appendChild(breakIt); 
+    Ausgabebereich.appendChild(breakIt);     
 }
 
 function selectChat(){
