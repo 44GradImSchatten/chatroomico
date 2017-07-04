@@ -5,12 +5,7 @@ setInterval(function() {
        }));
     // window.scrollTo(0,document.body.scrollHeight);
 }, 10000);
-var room = [
-        {id:0, name:'Room1', messages:[{
-            time:'Uhrzeit',text:'asmdasd'},{time:'UHrzeit',text:'akjnjad'}]},
-        {id:1, name:'Lobby 2', online:false},
-        {id:2, name:'Lobby8', online:true},
-        {id:3, name:'ajknjkanjkdadjkn', online:false}];
+var room = [{name: 'Lobby'},{name: 'ddos'},{name: 'Jan-Robin'},{name: 'test'},{name: 'Halp'},{name: 'halp'},{name: 'Numbers are awesome'},{name: 'EscapeTheMatrix'},{name: 'room'}];
 
 angular.module('chatApp', [])
     .controller('ChatListController', function($scope) {
@@ -42,7 +37,7 @@ angular.module('chatApp', [])
 
     $scope.select = function(pRoom) {
         angular.forEach(roomList.rooms, function(room){
-            if(room.id==pRoom){
+            if(room.name==pRoom){
                 $scope.selectedRoom = room;
             }
         });
@@ -69,17 +64,32 @@ Socket.onerror = function (error) {
 // Log messages from the server
 Socket.onmessage = function (event) {
     var data = JSON.parse(event.data);
-    console.log('Server: ' + data);
-    usr = data['user'];
-    msg = data['message'];
-    time = data['timestamp'];
-    roomId = data['roomId'];
-    if(user==usr){
-        addMsgOut(msg);
+    console.log('Server: ' + event.data);
+    if(event.data[0]==="[") {
+        room = "[";
+        for(var z=0; z<data.length;z++){
+            console.log('HELLO MOTO');
+            room += "{name: '"+data[z]+"'}";
+            if(z<data.length-1){
+                room+=",";
+            }
+        }
+        room += "]";
     }else{
-        addMsgIn(msg);
+        usr = data['user'];
+        msg = data['message'];
+        time = data['timestamp'];
+        roomId = data['roomId'];
+        if(user==usr){
+            addMsgOut(msg);
+        }else{
+            addMsgIn(msg);
+        }
     }
+    test();
 };
+
+function test(){console.log(room);}
   
 function inputKeyUp(e) {
     e.which = e.which || e.keyCode;

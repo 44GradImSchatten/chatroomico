@@ -11,7 +11,7 @@
         <div ng-controller="ChatListController as roomList">
             <div class="chat-sidebar">
                 <div class="sidebar-user" ng-repeat="room in roomList.rooms">
-                    <div ng-click="select(room.id)">
+                    <div ng-click="select(room.name)">
                         <img width="30" height="30" src="https://image.freepik.com/free-icon/happy-emoticon_318-40206.jpg" />
                         <span>{{room.name}}</span>
                         <span class="isOnline" ng-if="room.online">online</span>
