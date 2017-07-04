@@ -108,7 +108,7 @@ Socket.onmessage = function (event) {
         if(loggedUser==usr){
             addMsgOut(msg);
         }else{
-            addMsgIn(msg);
+            addMsgIn(msg,usr);
         }
         var elem = document.getElementById('main');
     elem.scrollTop = elem.scrollHeight;
@@ -159,7 +159,7 @@ function addMsgOut(txt,ts){
     var min = today.getMinutes();
     var dmy = d + "." + m + "." + y;
     var hm = h + ":"+min;
-    var date = dmy+" - "+hm;
+    var date = loggedUser+" - "+hm;
 
     var element = document.createElement('out');
     var time = document.createElement('outTime');
@@ -173,7 +173,7 @@ function addMsgOut(txt,ts){
 	Ausgabebereich.appendChild(element);
     Ausgabebereich.appendChild(breakIt); 
 }
-function addMsgIn(txt){
+function addMsgIn(txt, pUsr){
     var today = new Date();
     var d = today.getDate();
     var m = today.getMonth() + 1;
@@ -182,7 +182,7 @@ function addMsgIn(txt){
     var min = today.getMinutes();
     var dmy = d + "." + m + "." + y;
     var hm = h + ":"+min;
-    var date = dmy+" - "+hm;
+    var date = pUsr+" - "+hm;
 
     var Message = txt.concat("test");
     var element = document.createElement('in');
