@@ -1,11 +1,11 @@
 var loggedUser = "";
 
-setInterval(function() {
-     Socket.send(JSON.stringify({
-        "action": "getChatRooms",
-       }));
-    // window.scrollTo(0,document.body.scrollHeight);
-}, 10000);
+// setInterval(function() {
+//      Socket.send(JSON.stringify({
+//         "action": "getChatRooms",
+//        }));
+//     // window.scrollTo(0,document.body.scrollHeight);
+// }, 10000);
 var room = [{name: 'Lobby'},{name: 'ddos'},{name: 'Jan-Robin'},{name: 'test'},{name: 'Halp'},{name: 'halp'},{name: 'Numbers are awesome'},{name: 'EscapeTheMatrix'},{name: 'room'}];
 
 angular.module('chatApp', [])
@@ -115,11 +115,9 @@ Socket.onmessage = function (event) {
             addMsgIn(msg,usr);
         }
         var elem = document.getElementById('main');
-    elem.scrollTop = elem.scrollHeight;
+        elem.scrollTop = elem.scrollHeight;
     }
 };
-
-function test(){console.log(room);}
   
 function inputKeyUp(e) {
     e.which = e.which || e.keyCode;
